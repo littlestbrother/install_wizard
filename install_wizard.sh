@@ -1,16 +1,31 @@
 #!/bin/bash
 # v1.0.0
 
+# colors
+red=$'\e[1;31m'
+grn=$'\e[1;32m'
+yel=$'\e[1;33m'
+blu=$'\e[1;34m'
+mag=$'\e[1;35m'
+cyn=$'\e[1;36m'
+end=$'\e[0m'
+
 runScript() {
   # "i" is equal to the current iterated directory. "elements" is an array filled with all of the directories selected
   for i in $elements; do
+    cd $i
     # |--------------COMMANDS GO HERE!------------------|
 
-    printf "$i\n"
+    printf "${cyn}$PWD${end}/%s\n"
 
+    touch testFile
+    printf "${grn}success!${end}\n"
     # |-------------------------------------------------|
+    cd ..
   done
 }
+
+# --------------------------------------------------------------------------------------------------------------------
 
 requestResponse() {
   # helpful variables
@@ -18,7 +33,8 @@ requestResponse() {
   declare -a currentDirecoryList
 
   # get hidden files also
-  shopt -s dotglob
+  # shopt -s dotglob
+
   for i in *; do
     currentDirecoryList+=($i)
     # get number of items
@@ -27,7 +43,7 @@ requestResponse() {
 
   # loop through currentDirecoryList and print their respective response
   printf "\t${PWD}\n\n"
-  printf "\tFILES & FOLDERS:\n"
+  printf "\tFILES AND FOLDERS:\n"
   for i in ${!currentDirecoryList[@]}; do
     printf "\t[${i}] ${currentDirecoryList[${i}]}\n"
   done
