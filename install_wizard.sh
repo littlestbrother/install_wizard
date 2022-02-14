@@ -14,13 +14,13 @@ runScript() {
   # "i" is equal to the current iterated directory. "elements" is an array filled with all of the directories selected
   for i in $elements; do
     cd $i
+    printf "${cyn}$PWD${end}/%s\n"
     # |--------------COMMANDS GO HERE!------------------|
 
-    printf "${cyn}$PWD${end}/%s\n"
-
     touch testFile
-    printf "${grn}success!${end}\n"
+
     # |-------------------------------------------------|
+    printf "${grn}success!${end}\n"
     cd ..
   done
 }
