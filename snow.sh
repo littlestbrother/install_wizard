@@ -17,10 +17,9 @@ runScript() {
     printf "${cyn}$PWD${end}/%s\n"
     # |--------------COMMANDS GO HERE!------------------|
 
-    echo Hello World!
+    echo hello world
 
     # |-------------------------------------------------|
-    printf "${grn}success!${end}\n"
     cd ..
   done
 }
