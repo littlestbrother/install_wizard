@@ -17,7 +17,7 @@ runScript() {
     printf "${cyn}$PWD${end}/%s\n"
     # |--------------COMMANDS GO HERE!------------------|
 
-    touch testFile
+    echo Hello World!
 
     # |-------------------------------------------------|
     printf "${grn}success!${end}\n"
@@ -31,14 +31,19 @@ requestResponse() {
   # helpful variables
   declare -i numOfItems=-1
   declare -a currentDirecoryList
+  THISFILE=$(basename $0)
 
   # get hidden files also
   # shopt -s dotglob
 
   for i in *; do
+
+  if [ $i != $THISFILE ]
+  then
     currentDirecoryList+=($i)
     # get number of items
     ((numOfItems++))
+  fi
   done
 
   # loop through currentDirecoryList and print their respective response
